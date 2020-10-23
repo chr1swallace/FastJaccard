@@ -16,8 +16,8 @@ jaccard_pair <- function(x, y) {
 #' @param B list of character vectors
 #' @return a matrix of Jaccard indexes with rows corresponding to entries in A,
 #' cols to entries in B
-jaccard_lists <- function(A, B) {
-    .Call(`_FastJaccard_jaccard_lists`, A, B)
+jaccard_lists_cpp <- function(A, B) {
+    .Call(`_FastJaccard_jaccard_lists_cpp`, A, B)
 }
 
 #' Calculate Jaccard indexes for a list of character vector
@@ -25,7 +25,7 @@ jaccard_lists <- function(A, B) {
 #' @param A list of character vectors
 #' @return a symmetric matrix of Jaccard indexes with rows and cols
 #' corresponding to entries in A
-jaccard_symlist <- function(A) {
-    .Call(`_FastJaccard_jaccard_symlist`, A)
+jaccard_symlist_cpp <- function(A) {
+    .Call(`_FastJaccard_jaccard_symlist_cpp`, A)
 }
 

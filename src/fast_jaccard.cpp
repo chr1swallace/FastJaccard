@@ -26,7 +26,7 @@ double jaccard_pair( const CharacterVector x, const CharacterVector y){
 //' @return a matrix of Jaccard indexes with rows corresponding to entries in A,
 //' cols to entries in B
 // [[Rcpp::export]]
-NumericMatrix jaccard_lists ( const List A, const List B ) {
+NumericMatrix jaccard_lists_cpp ( const List A, const List B ) {
 
   NumericMatrix J(A.size() ,B.size() );
   for(int i=0; i<A.size(); i++) {
@@ -36,6 +36,7 @@ NumericMatrix jaccard_lists ( const List A, const List B ) {
       J(i,j)=jaccard_pair(Ae,Be);
     }
   }
+
   return(J);
 
 }
@@ -46,7 +47,7 @@ NumericMatrix jaccard_lists ( const List A, const List B ) {
 //' @return a symmetric matrix of Jaccard indexes with rows and cols
 //' corresponding to entries in A
 // [[Rcpp::export]]
-NumericMatrix jaccard_symlist ( const List A ) {
+NumericMatrix jaccard_symlist_cpp ( const List A ) {
 
   NumericMatrix J(A.size() , A.size() );
   J(0,0)=1;

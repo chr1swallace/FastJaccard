@@ -17,34 +17,34 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// jaccard_lists
-NumericMatrix jaccard_lists(const List A, const List B);
-RcppExport SEXP _FastJaccard_jaccard_lists(SEXP ASEXP, SEXP BSEXP) {
+// jaccard_lists_cpp
+NumericMatrix jaccard_lists_cpp(const List A, const List B);
+RcppExport SEXP _FastJaccard_jaccard_lists_cpp(SEXP ASEXP, SEXP BSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const List >::type A(ASEXP);
     Rcpp::traits::input_parameter< const List >::type B(BSEXP);
-    rcpp_result_gen = Rcpp::wrap(jaccard_lists(A, B));
+    rcpp_result_gen = Rcpp::wrap(jaccard_lists_cpp(A, B));
     return rcpp_result_gen;
 END_RCPP
 }
-// jaccard_symlist
-NumericMatrix jaccard_symlist(const List A);
-RcppExport SEXP _FastJaccard_jaccard_symlist(SEXP ASEXP) {
+// jaccard_symlist_cpp
+NumericMatrix jaccard_symlist_cpp(const List A);
+RcppExport SEXP _FastJaccard_jaccard_symlist_cpp(SEXP ASEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const List >::type A(ASEXP);
-    rcpp_result_gen = Rcpp::wrap(jaccard_symlist(A));
+    rcpp_result_gen = Rcpp::wrap(jaccard_symlist_cpp(A));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
     {"_FastJaccard_jaccard_pair", (DL_FUNC) &_FastJaccard_jaccard_pair, 2},
-    {"_FastJaccard_jaccard_lists", (DL_FUNC) &_FastJaccard_jaccard_lists, 2},
-    {"_FastJaccard_jaccard_symlist", (DL_FUNC) &_FastJaccard_jaccard_symlist, 1},
+    {"_FastJaccard_jaccard_lists_cpp", (DL_FUNC) &_FastJaccard_jaccard_lists_cpp, 2},
+    {"_FastJaccard_jaccard_symlist_cpp", (DL_FUNC) &_FastJaccard_jaccard_symlist_cpp, 1},
     {NULL, NULL, 0}
 };
 
