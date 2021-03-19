@@ -10,14 +10,33 @@ jaccard_pair <- function(x, y) {
     .Call(`_FastJaccard_jaccard_pair`, x, y)
 }
 
+#' Count overlap between two character vectors
+#'
+#' @param x character vector
+#' @param y character vector
+#' @return |intersect(x,y)|
+overlap_pair <- function(x, y) {
+    .Call(`_FastJaccard_overlap_pair`, x, y)
+}
+
 #' Calculate Jaccard index for two lists of character vectors
 #'
 #' @param A list of character vectors
 #' @param B list of character vectors
 #' @return a matrix of Jaccard indexes with rows corresponding to entries in A,
 #' cols to entries in B
-jaccard_lists_cpp <- function(A, B) {
-    .Call(`_FastJaccard_jaccard_lists_cpp`, A, B)
+jaccard_lists <- function(A, B) {
+    .Call(`_FastJaccard_jaccard_lists`, A, B)
+}
+
+#' Calculate Jaccard index for two lists of character vectors
+#'
+#' @param A list of character vectors
+#' @param B list of character vectors
+#' @return a matrix of count of overlaps with rows corresponding to entries in A,
+#' cols to entries in B
+overlap_lists <- function(A, B) {
+    .Call(`_FastJaccard_overlap_lists`, A, B)
 }
 
 #' Calculate Jaccard indexes for a list of character vector
@@ -25,7 +44,16 @@ jaccard_lists_cpp <- function(A, B) {
 #' @param A list of character vectors
 #' @return a symmetric matrix of Jaccard indexes with rows and cols
 #' corresponding to entries in A
-jaccard_symlist_cpp <- function(A) {
-    .Call(`_FastJaccard_jaccard_symlist_cpp`, A)
+jaccard_symlist <- function(A) {
+    .Call(`_FastJaccard_jaccard_symlist`, A)
+}
+
+#' Count overlaps for a symmetric list of character vector
+#'
+#' @param A list of character vectors
+#' @return a symmetric matrix of counts with rows and cols
+#' corresponding to entries in A
+overlap_symlist <- function(A) {
+    .Call(`_FastJaccard_overlap_symlist`, A)
 }
 
