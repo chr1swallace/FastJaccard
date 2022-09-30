@@ -12,13 +12,13 @@ test_that("Rcpp equiv to R", {
 })
 
 test_that("names work", {
-  dn=dimnames(jaccard_lists(A,B))
+  dn=dimnames(jaccard_lists_wrapper(A,B))
   expect_equal(dn, list(names(A),names(B)))
   An=A; Bn=B; names(An)=NULL; names(Bn)=NULL
-  dn=dimnames(jaccard_lists(An,Bn))
+  dn=dimnames(jaccard_lists_wrapper(An,Bn))
   expect_null(dn)
 })
 
 test_that("symlist works", {
-  expect_equal(jaccard_lists(A), jaccard_lists(A,A))
+  expect_equal(jaccard_symlist(A), jaccard_lists(A,A))
 })

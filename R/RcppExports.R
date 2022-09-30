@@ -6,6 +6,7 @@
 #' @param x character vector
 #' @param y character vector
 #' @return |intersect(x,y)| / |union(x,y)|
+#' @export
 jaccard_pair <- function(x, y) {
     .Call(`_FastJaccard_jaccard_pair`, x, y)
 }
@@ -15,6 +16,7 @@ jaccard_pair <- function(x, y) {
 #' @param x character vector
 #' @param y character vector
 #' @return |intersect(x,y)|
+#' @export
 overlap_pair <- function(x, y) {
     .Call(`_FastJaccard_overlap_pair`, x, y)
 }
@@ -25,6 +27,7 @@ overlap_pair <- function(x, y) {
 #' @param B list of character vectors
 #' @return a matrix of Jaccard indexes with rows corresponding to entries in A,
 #' cols to entries in B
+#' @export
 jaccard_lists <- function(A, B) {
     .Call(`_FastJaccard_jaccard_lists`, A, B)
 }
@@ -35,6 +38,7 @@ jaccard_lists <- function(A, B) {
 #' @param B list of character vectors
 #' @return a matrix of count of overlaps with rows corresponding to entries in A,
 #' cols to entries in B
+#' @export
 overlap_lists <- function(A, B) {
     .Call(`_FastJaccard_overlap_lists`, A, B)
 }
@@ -44,6 +48,7 @@ overlap_lists <- function(A, B) {
 #' @param A list of character vectors
 #' @return a symmetric matrix of Jaccard indexes with rows and cols
 #' corresponding to entries in A
+#' @export
 jaccard_symlist <- function(A) {
     .Call(`_FastJaccard_jaccard_symlist`, A)
 }
@@ -53,6 +58,7 @@ jaccard_symlist <- function(A) {
 #' @param A list of character vectors
 #' @return a symmetric matrix of counts with rows and cols
 #' corresponding to entries in A
+#' @export
 overlap_symlist <- function(A) {
     .Call(`_FastJaccard_overlap_symlist`, A)
 }

@@ -6,6 +6,7 @@ using namespace Rcpp;
 //' @param x character vector
 //' @param y character vector
 //' @return |intersect(x,y)| / |union(x,y)|
+//' @export
 // [[Rcpp::export]]
 double jaccard_pair( const CharacterVector x, const CharacterVector y){
     int nint=0;
@@ -24,6 +25,7 @@ double jaccard_pair( const CharacterVector x, const CharacterVector y){
 //' @param x character vector
 //' @param y character vector
 //' @return |intersect(x,y)|
+//' @export
 // [[Rcpp::export]]
 int overlap_pair( const CharacterVector x, const CharacterVector y){
     int nint=0;
@@ -42,6 +44,7 @@ int overlap_pair( const CharacterVector x, const CharacterVector y){
 //' @param B list of character vectors
 //' @return a matrix of Jaccard indexes with rows corresponding to entries in A,
 //' cols to entries in B
+//' @export
 // [[Rcpp::export]]
 NumericMatrix jaccard_lists ( const List A, const List B ) {
 
@@ -64,6 +67,7 @@ NumericMatrix jaccard_lists ( const List A, const List B ) {
 //' @param B list of character vectors
 //' @return a matrix of count of overlaps with rows corresponding to entries in A,
 //' cols to entries in B
+//' @export
 // [[Rcpp::export]]
 NumericMatrix overlap_lists ( const List A, const List B ) {
 
@@ -85,6 +89,7 @@ NumericMatrix overlap_lists ( const List A, const List B ) {
 //' @param A list of character vectors
 //' @return a symmetric matrix of Jaccard indexes with rows and cols
 //' corresponding to entries in A
+//' @export
 // [[Rcpp::export]]
 NumericMatrix jaccard_symlist ( const List A ) {
 
@@ -109,6 +114,7 @@ NumericMatrix jaccard_symlist ( const List A ) {
 //' @param A list of character vectors
 //' @return a symmetric matrix of counts with rows and cols
 //' corresponding to entries in A
+//' @export
 // [[Rcpp::export]]
 NumericMatrix overlap_symlist ( const List A ) {
 
