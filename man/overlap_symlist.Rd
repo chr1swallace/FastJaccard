@@ -2,7 +2,8 @@
 % Please edit documentation in R/RcppExports.R
 \name{overlap_symlist}
 \alias{overlap_symlist}
-\title{Count overlaps for a symmetric list of character vector}
+\title{Count overlaps between all combinations of a list of character vectors
+with itself}
 \usage{
 overlap_symlist(A)
 }
@@ -14,5 +15,6 @@ a symmetric matrix of counts with rows and cols
 corresponding to entries in A
 }
 \description{
-Count overlaps for a symmetric list of character vector
+Count overlaps between all combinations of a list of character vectors
+with itself
 }

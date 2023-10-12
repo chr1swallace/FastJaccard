@@ -7,13 +7,14 @@
 jaccard_pair(x, y)
 }
 \arguments{
-\item{x}{character vector}
+\item{x}{First vector, coerced to character if it is not}
 
-\item{y}{character vector}
+\item{y}{Second vector, coerced to character if it is not}
 }
 \value{
-|intersect(x,y)| / |union(x,y)|
+Jaccard index |intersect(x,y)| / |union(x,y)|
 }
 \description{
-Calculate Jaccard index for two character vectors
+Workhorse of the package, but will not be faster than a standard
+jaccard for a single pair of vectors.
 }

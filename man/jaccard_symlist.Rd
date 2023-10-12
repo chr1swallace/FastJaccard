@@ -2,7 +2,8 @@
 % Please edit documentation in R/RcppExports.R
 \name{jaccard_symlist}
 \alias{jaccard_symlist}
-\title{Calculate Jaccard indexes for a list of character vector}
+\title{Calculate Jaccard indexes between all combinations of a list of character
+vectors with itself}
 \usage{
 jaccard_symlist(A)
 }
@@ -14,5 +15,6 @@ a symmetric matrix of Jaccard indexes with rows and cols
 corresponding to entries in A
 }
 \description{
-Calculate Jaccard indexes for a list of character vector
+Calculate Jaccard indexes between all combinations of a list of character
+vectors with itself
 }

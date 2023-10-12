@@ -2,7 +2,8 @@
 % Please edit documentation in R/RcppExports.R
 \name{overlap_lists}
 \alias{overlap_lists}
-\title{Calculate Jaccard index for two lists of character vectors}
+\title{Calculate overlap counts between all combinations of two lists of character
+vectors}
 \usage{
 overlap_lists(A, B)
 }
@@ -16,5 +17,6 @@ a matrix of count of overlaps with rows corresponding to entries in A,
 cols to entries in B
 }
 \description{
-Calculate Jaccard index for two lists of character vectors
+Calculate overlap counts between all combinations of two lists of character
+vectors
 }

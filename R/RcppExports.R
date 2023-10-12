@@ -3,12 +3,25 @@
 
 #' Calculate Jaccard index for two character vectors
 #'
-#' @param x character vector
-#' @param y character vector
-#' @return |intersect(x,y)| / |union(x,y)|
+#' Workhorse of the package, but will not be faster than a standard
+#' jaccard for a single pair of vectors.
+#'
+#' @param x First vector, coerced to character if it is not
+#' @param y Second vector, coerced to character if it is not
+#' @return Jaccard index |intersect(x,y)| / |union(x,y)|
 #' @export
 jaccard_pair <- function(x, y) {
     .Call(`_FastJaccard_jaccard_pair`, x, y)
+}
+
+#' Calculate denominator of Jaccard index for two character vectors
+#'
+#' @param x character vector
+#' @param y character vector
+#' @return |union(x,y)|
+#' @export
+denom_pair <- function(x, y) {
+    .Call(`_FastJaccard_denom_pair`, x, y)
 }
 
 #' Count overlap between two character vectors
@@ -21,7 +34,7 @@ overlap_pair <- function(x, y) {
     .Call(`_FastJaccard_overlap_pair`, x, y)
 }
 
-#' Calculate Jaccard index for two lists of character vectors
+#' Calculate Jaccard index for all pairwise combinations of two lists of character vectors
 #'
 #' @param A list of character vectors
 #' @param B list of character vectors
@@ -32,7 +45,19 @@ jaccard_lists <- function(A, B) {
     .Call(`_FastJaccard_jaccard_lists`, A, B)
 }
 
-#' Calculate Jaccard index for two lists of character vectors
+#' Calculate denominator of Jaccard index for all combinations from two lists of character vectors
+#'
+#' @param A list of character vectors
+#' @param B list of character vectors
+#' @return a matrix of Jaccard indexes with rows corresponding to entries in A,
+#' cols to entries in B
+#' @export
+denom_lists <- function(A, B) {
+    .Call(`_FastJaccard_denom_lists`, A, B)
+}
+
+#' Calculate overlap counts between all combinations of two lists of character
+#' vectors
 #'
 #' @param A list of character vectors
 #' @param B list of character vectors
@@ -43,7 +68,8 @@ overlap_lists <- function(A, B) {
     .Call(`_FastJaccard_overlap_lists`, A, B)
 }
 
-#' Calculate Jaccard indexes for a list of character vector
+#' Calculate Jaccard indexes between all combinations of a list of character
+#' vectors with itself
 #'
 #' @param A list of character vectors
 #' @return a symmetric matrix of Jaccard indexes with rows and cols
@@ -53,7 +79,19 @@ jaccard_symlist <- function(A) {
     .Call(`_FastJaccard_jaccard_symlist`, A)
 }
 
-#' Count overlaps for a symmetric list of character vector
+#' Calculate denominator of Jaccard index between all combinations of a list of
+#' character vectors with itself
+#'
+#' @param A list of character vectors
+#' @return a symmetric matrix of denominators of Jaccard indexes with rows and cols
+#' corresponding to entries in A
+#' @export
+denom_symlist <- function(A) {
+    .Call(`_FastJaccard_denom_symlist`, A)
+}
+
+#' Count overlaps between all combinations of a list of character vectors
+#' with itself
 #'
 #' @param A list of character vectors
 #' @return a symmetric matrix of counts with rows and cols
